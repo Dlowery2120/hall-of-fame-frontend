@@ -10,7 +10,7 @@ const LogIn = (props) => {
         <label>password</label>
         <input type="password"/>
         <br/>
-        <input type="submit"/>
+        <input type="submit" value="Log in"/>
     </form>)
 }
 

@@ -74,19 +74,29 @@ class App extends Component {
         <BrowserRouter>
         <nav>
           <ul>
-              {localStorage.token ? <TriviaContainer /> : <Redirect to="/"/>}
+
+              {localStorage.token ? <Redirect to="/home"/> : <Redirect to="/login"/>}
+
           </ul>
         </nav>
         <Header />
 
           <Switch>
 
-            <Route exact path="/">
+            <Route exact path="/login">
               <br />
               <UserLogin handleLogin = {this.handleLogin}/>
               <br />
-              <button onClick={()=> this.handleLogout() }>Log Out</button>
             </Route>
+
+            <Route exact path="/home">
+              {<TriviaContainer/>}
+              <button onClick={()=> this.handleLogout() }>LogOut</button>
+            </Route>
+
+            {/* create another route for when they logout, to go back to login */}
+
+            {/* create route for "Classic" when they click on button it renders Classic component */}
 
           </Switch>
         </BrowserRouter>
@@ -95,16 +105,4 @@ class App extends Component {
   }
 }
 
-{/* <Switch>
-  <AuthRoute path="/login" type="guest">
-    <LoginPage />
-  </AuthRoute>
-
-  <AuthRoute path="/home" render={HomePage} type="private" />
-  <AuthRoute path="/my-account" type="private">
-    <MyAccount />
-  </AuthRoute>
-
-  <Route path="/" render={IndexPage} />
-</Switch> */}
 export default App;

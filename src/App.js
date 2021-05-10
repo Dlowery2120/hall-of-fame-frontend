@@ -11,12 +11,14 @@ import {
 
 import './App.css';
 import Header from './components/Header'
-import SignIn from './components/SignIn'
 import GamePage from './components/GamePage'
 import TriviaContainer from './containers/TriviaContainer'
 import UserLogin from "./components/UserLogin"
 
 class App extends Component {
+  state = {
+    isLoggedIn: false
+  }
 
   getUsers = () => {
     fetch("http://localhost:3000/api/v1/users",{
@@ -57,13 +59,26 @@ class App extends Component {
       localStorage.setItem("token", data.token)
       this.getUsers()
 
+      // >>>>>
+      this.setState({
+        isLoggedIn: true
+      })
+      // >>>>>
+
     })
 
   }
   handleLogout = () =>{
     console.log('cleared localstorage')
     localStorage.clear()
-    // redirect 
+
+    // >>>>>
+    if (localStorage != false)
+    {this.setState({
+      isLoggedIn: false
+    })}
+    // >>>>>
+
   }
 
   render() {
@@ -73,11 +88,7 @@ class App extends Component {
         
         <BrowserRouter>
         <nav>
-          <ul>
-
               {localStorage.token ? <Redirect to="/home"/> : <Redirect to="/login"/>}
-
-          </ul>
         </nav>
         <Header />
 
@@ -91,9 +102,13 @@ class App extends Component {
 
             <Route exact path="/home">
               {<TriviaContainer/>}
+              <br/>
               <button onClick={()=> this.handleLogout() }>LogOut</button>
+              
             </Route>
 
+
+            {/* <Route exact path="/" */}
             {/* create another route for when they logout, to go back to login */}
 
             {/* create route for "Classic" when they click on button it renders Classic component */}

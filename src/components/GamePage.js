@@ -7,7 +7,7 @@ class GamePage extends Component {
     render() {
         return(
         <div>
-            <h1>GamePage</h1>
+            <h4>GamePage</h4>
             <div>
                 {/* {console.log(this.props.gamemodesArr)} */}
                 {this.props.gamemodesArr.map(singleGamemode => <GameMode key={singleGamemode.id} gamemode={singleGamemode}/>)}

@@ -55,30 +55,21 @@ class App extends Component {
     fetch('http://localhost:3000/api/v1/login', reqPackage)
     .then(res => res.json())
     .then(data=> {
-      // localStorage.token = data.token
       localStorage.setItem("token", data.token)
       this.getUsers()
-
-      // >>>>>
       this.setState({
         isLoggedIn: true
       })
-      // >>>>>
-
     })
 
   }
   handleLogout = () =>{
     console.log('cleared localstorage')
     localStorage.clear()
-
-    // >>>>>
     if (localStorage != false)
     {this.setState({
       isLoggedIn: false
     })}
-    // >>>>>
-
   }
 
   render() {
@@ -106,10 +97,6 @@ class App extends Component {
               <button onClick={()=> this.handleLogout() }>LogOut</button>
               
             </Route>
-
-
-            {/* <Route exact path="/" */}
-            {/* create another route for when they logout, to go back to login */}
 
             {/* create route for "Classic" when they click on button it renders Classic component */}
 

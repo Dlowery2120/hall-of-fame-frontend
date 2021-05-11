@@ -1,13 +1,21 @@
 
-import React, { useState, useEffect } from 'react';
-import '../App.scss';
+import React from 'react'
+import Question from './Question.js'
+import Answer from './Answer.js'
+import Timer from './Timer'
 
-const cn = (...args) => {
-  return args.filter(x => x).join(' ');
-};
 
 const GameMode = (props) => {
+    return(
+        <div>
+            <button >{props.gamemode.mode}</button><br/><br/>
+            <Question questions={props.questions}/>
+            <Timer/>
+            <Answer />
 
+            
+        </div>
+    )
 }
 
 

@@ -5,6 +5,7 @@ import Answer from './Answer.js'
 import Timer from './Timer'
 
 
+
 const GameMode = (props) => {
     return(
         <div>

@@ -3,6 +3,7 @@ import GameMode from "./GameMode.js"
 import Question from "./Question.js"
 import Answer from "./Answer.js"
 
+
 class GamePage extends Component {
     // state={
     //     questions: []

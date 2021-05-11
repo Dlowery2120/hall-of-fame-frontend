@@ -1,13 +1,17 @@
 import React from 'react'
 
 
-const Answer = () => {
+const Answer = (props) => {
+    // const answersArr = props.answers.map(ans => ans.answer)
 
     return(
 
         <div>
-        <p>this is my answers container</p>
+            {/* <p><strong>Answer Choice: </strong></p> */}
+            <br/><br/>
+            <button class="ansBtn">{props.answer.answer}</button>
         </div>
+
     )
 }
 

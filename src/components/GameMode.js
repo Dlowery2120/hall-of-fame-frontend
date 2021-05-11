@@ -5,11 +5,14 @@ import Answer from './Answer.js'
 const GameMode = (props) => {
     return(
         <div>
-            <button >{props.gamemode.mode}</button><br/><br/>
-            <Question questions={props.questions}/>
-            <Answer />
-
-            
+            <button class="gamemodeBtn">{props.gamemode.mode}</button>
+            <Question questions={props.questions} questionRenderChoices={props.questionRenderChoices} questionGetRandom={props.questionGetRandom} />
+            <div>
+            <br/>
+            {props.answers.map(singleAnswer => <Answer key={singleAnswer.id} answer={singleAnswer}/>)}
+            <br/><br/><br/><br/><br/>
+            </div>
+        
         </div>
     )
 }

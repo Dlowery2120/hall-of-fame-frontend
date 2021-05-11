@@ -21,9 +21,9 @@ class GamePage extends Component {
         <div>
             <h4>Pick a gamemode!</h4>
             <div>
-                {/* {console.log(this.props.gamemodesArr)} */}
-                {this.props.gamemodesArr.map(singleGamemode => <GameMode key={singleGamemode.id} gamemode={singleGamemode} questions={this.props.questionsArr}/>)}
-                {/* <Question questions={this.props.questionsArr}/> */}
+                {/* {console.log(this.props.gamemode)} */}
+                {this.props.gamemodesArr.map(singleGamemode => <GameMode key={singleGamemode.id} gamemode={singleGamemode} questions={this.props.questionsArr} questionRenderChoices={this.props.questionRenderChoices} questionGetRandom={this.props.questionGetRandom} answers={this.props.answers}/>)}
+                {/* <GameMode key={this.props.gamemode.id} gamemode={this.props.gamemode} questions={this.props.questionsArr} questionRenderChoices={this.props.questionRenderChoices} answers={this.props.answers}/> */}
             </div>
         </div>)
     }

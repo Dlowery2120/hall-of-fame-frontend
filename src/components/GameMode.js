@@ -6,7 +6,7 @@ const GameMode = (props) => {
     return(
         <div>
             <button class="gamemodeBtn">{props.gamemode.mode}</button>
-            <Question questions={props.questions} questionRenderChoices={props.questionRenderChoices} questionGetRandom={props.questionGetRandom} />
+            <Question questions={props.questions} songs={props.songs} questionRenderChoices={props.questionRenderChoices} questionGetRandom={props.questionGetRandom} answers={props.answers} />
             <div>
             <br/>
             {props.answers.map(singleAnswer => <Answer key={singleAnswer.id} answer={singleAnswer}/>)}

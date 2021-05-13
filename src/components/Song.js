@@ -6,11 +6,11 @@ class Song extends Component {
     render() {
         return (
           <div>
-              {console.log(this.props.artistInfo.response.hits[0].result)}
-              {/* {console.log(this.props.artistInfo)} */}
-          <img className="song-art" src={this.props.artistInfo.response.hits[0].result.song_art_image_url}></img>
-          <p>{this.props.artistInfo.response.hits[0].result.full_title}</p>
-          <p>Song Title: {this.props.artistInfo.response.hits[0].result.title}</p>
+            <div>
+              <h3>{this.props.name}</h3>
+              <img className="song-art" src={this.props.picture}></img>
+              <p>{this.props.title}</p>
+            </div>
           </div>
         );
       }

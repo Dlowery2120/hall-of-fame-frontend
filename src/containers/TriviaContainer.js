@@ -8,7 +8,9 @@ class TriviaContainer extends Component {
         answers: [{value: ""}],
         songs: [{value: ""}],
         answered: "",
-        isRight: null
+        isRight: null,
+        gameStart: false,
+        displayMode: false
     }
 
 
@@ -44,6 +46,20 @@ class TriviaContainer extends Component {
 
     }
 
+    loadNewQuestion = () => {
+        console.log("New Question")
+    }
+
+    // gameStart = () => {
+    //     if (this.state.gameEdition === "Classic") {
+    //     // this.classicStartGame()}
+    //     this.setState({
+    //         gameStart: !this.state.gameStart,
+    //         // gameChoice: false,
+    //         // initialGameState: false
+    //     })
+    // }
+
 
     answerClicked = (answer) => {
         const { hasAnswered, correct_answer } = this.state.songs
@@ -64,7 +80,17 @@ class TriviaContainer extends Component {
         <div>
             {/* {console.log(mappedAnswersArr)} */}
             <h1>TriviaContainer</h1>
-            <GamePage gamemodesArr={this.state.gamemodes} songsArr={this.state.songs} questionsArr={this.state.questions} questionRenderChoices={this.questionRenderChoices} questionGetRandom={this.questionGetRandom} answers={this.state.answers}/>
+            <GamePage 
+            gamemodesArr={this.state.gamemodes} 
+            songsArr={this.state.songs} 
+            questionsArr={this.state.questions} q
+            uestionRenderChoices={this.questionRenderChoices} 
+            questionGetRandom={this.questionGetRandom} 
+            answers={this.state.answers}
+            loadNewQuestion={this.loadNewQuestion}
+            
+            // gameStart={this.gameStart}
+            />
             {/* {this.state.gamemodes.map(singleGamemode => <GamePage gamemode={singleGamemode}/>)} */}
         </div>
         )

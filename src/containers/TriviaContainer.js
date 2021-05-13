@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GamePage from "../components/GamePage.js"
+import Song from "../components/Song.js"
 
 class TriviaContainer extends Component {
     state={
@@ -7,9 +8,24 @@ class TriviaContainer extends Component {
         questions: [{value: ""}],
         answers: [{value: ""}],
         songs: [{value: ""}],
-        answered: "",
-        isRight: null
+        songInfo: ['hi'],
+        artistInfo: {
+            response: {
+                hits: [{
+                    result:{
+                        // title:'',
+                        primary_arist: {
+                            name: ""
+                        }
+                            
+                        
+                    }
+                }]
+            }
+        },
+        audio: ""
     }
+  
 
 
     componentDidMount(){
@@ -18,54 +34,47 @@ class TriviaContainer extends Component {
         .then(data => this.setState({
             gamemodes: data
         }))
-        
 
-        fetch("http://localhost:3000/api/v1/questions")
-        .then(res => res.json())
+        fetch("https://genius.p.rapidapi.com/artists/16775/songs", {
+        "method": "GET",
+        "headers": {
+		"x-rapidapi-key": "0cafc7e271mshe602d6d7c0ab4dep1f3ac8jsne8fcddaeb24a",
+		"x-rapidapi-host": "genius.p.rapidapi.com"
+	    }
+        })
+        .then(res=>res.json())
         .then(data => this.setState({
-            questions: data
+            songInfo: data
         }))
+        .catch(err => {
+            console.error(err);
+        });
 
-        fetch("http://localhost:3000/api/v1/answers")
+        const test = "Kendrick%20Lamar"
+
+        fetch(`https://genius.p.rapidapi.com/search?q=${test}`, {
+        "method": "GET",
+        "headers": {
+		"x-rapidapi-key": "0cafc7e271mshe602d6d7c0ab4dep1f3ac8jsne8fcddaeb24a",
+		"x-rapidapi-host": "genius.p.rapidapi.com"
+	    }
+        })
         .then(res => res.json())
-        .then(data => this.setState({
-            answers: data
+        .then(response => this.setState({
+            artistInfo: response
         }))
-
-        fetch("http://localhost:3000/api/v1/songs")
-        .then(res => res.json())
-        .then(data => this.setState({
-            songs: data
-        }))
-
+        .catch(err => {
+            console.error(err);
+        });
     }
-
-    gamemodeOnClickHandler = () => {
-
-    }
-
-
-    answerClicked = (answer) => {
-        const { hasAnswered, correct_answer } = this.state.songs
-        return event => {
-            const isRight = correct_answer === answer 
-            hasAnswered(isRight)
-            this.setState({
-                answered: answer,
-                isRight
-            })
-        }
-    }
-
-
 
     render() {
+        // console.log(this.state.songInfo)
     return(
         <div>
-            {/* {console.log(mappedAnswersArr)} */}
             <h1>TriviaContainer</h1>
-            <GamePage gamemodesArr={this.state.gamemodes} songsArr={this.state.songs} questionsArr={this.state.questions} questionRenderChoices={this.questionRenderChoices} questionGetRandom={this.questionGetRandom} answers={this.state.answers}/>
-            {/* {this.state.gamemodes.map(singleGamemode => <GamePage gamemode={singleGamemode}/>)} */}
+            <Song songInfo={this.state.songInfo} artistInfo={this.state.artistInfo}/>
+            {/* <GamePage gamemodesArr={this.state.gamemodes} songsArr={this.state.songs} questionsArr={this.state.questions} questionRenderChoices={this.questionRenderChoices} questionGetRandom={this.questionGetRandom} answers={this.state.answers}/> */}
         </div>
         )
     }

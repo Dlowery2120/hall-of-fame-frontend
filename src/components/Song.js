@@ -1,39 +1,24 @@
 import React, { Component } from 'react';
 
 class Song extends Component {
-;
-	render() {
-		return (
-			<div class="container songs-container">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
-            <div class="card">
-              <img src={this.props.picture} class="card-img-top" alt="..."></img>
-              <div class="card-body">
-                <h5 class="card-title">f</h5>
-                <p class="card-text">f</p>
+  render() {
+      return(
+          <div className="container songs-container">
+              <div className="row row-cols-1 row-cols-md-3 g-4">
+                  <div className="col">
+                      <div className="card">
+                          <h1 className="card-title">{this.props.songArray.title !== undefined ? this.props.songArray.title : null}</h1>
+                          <img className="card-img-top" alt="..." src={this.props.songArray.song_art_image_url !== undefined ? this.props.songArray.song_art_image_url : null}></img>
+                          <div className="card-body">
+                              <h5 className="card-text">{this.props.songArray.full_title !== undefined ? this.props.songArray.full_title : null}</h5>
+                          </div>
+                      </div><br/><br/>
+                  </div>
               </div>
-            </div>
           </div>
-        </div>
-			</div>
-		);
-	}
+      )
+  }
 }
 
 export default Song;
 
-// emily's code
-    // render() {
-    //     return (
-    //       <div>
-    //         <div>
-    //           <h3>{this.props.name}</h3>
-    //           <img className="song-art" src={this.props.picture}></img>
-    //           <p>{this.props.title}</p>
-    //         </div>
-    //       </div>
-    //     );
-    //   }
-    // }
-    

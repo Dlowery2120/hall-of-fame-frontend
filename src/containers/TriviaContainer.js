@@ -96,7 +96,7 @@ class TriviaContainer extends Component {
 						</p>
 					</div>
 				</div>
-				<SearchBar search={this.renderSearch} />
+				{/* <SearchBar search={this.renderSearch} /> */}
 				<h1>{this.state.primary_artist}</h1>
                 {/* <SongsList songInfo={this.state.songInfo} allArtists={this.state.allArtists} artistEndpoints={this.state.artistEndpoints} artistInfo={this.state.artistInfo} getArtist={this.getArtist}/> */}
                 <SongsList songInfo={this.state.songInfo} allArtists={this.state.allArtists} artistEndpoints={this.state.artistEndpoints} artistInfo={this.state.artistInfo} getArtist={this.getArtist}/>

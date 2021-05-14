@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import Song from './Song.js'
+import SearchBar from './SearchBar'
+class SongsMapped extends Component {
 
-const SongsMapped = (props) => {
-
-       return(
-        <div >
-            {/* <h1>HELLO</h1> */}
-
-        {props.array !== undefined ? (props.array.map(newArray => <Song songArray={newArray}/>)) : null}
-        </div>
+      
+      render() {
+        return(
+            <div>
+                <p>Merged this component with SongsList</p>
+            </div>
         );
       }
-
-    
+    }
  export default SongsMapped;
+
+

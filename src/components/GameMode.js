@@ -1,7 +1,6 @@
-
 import React from 'react'
 import Question from './Question.js'
-import Answer from './Answer.js'
+
 import Timer from './Timer'
 
 
@@ -22,7 +21,7 @@ class GameMode extends React.Component {
   render() {
     return(
         <div>
-            <button class="gamemodeBtn" onClick={this.handleClick}>{this.props.gamemode.mode}</button>
+            {/* <button class="gamemodeBtn" onClick={this.handleClick}>{this.props.gamemode.mode}</button>
             <br/> <br/>
             {this.state.displayMode ? <Timer/> : false}
             {this.state.displayMode ? <Question 
@@ -35,8 +34,8 @@ class GameMode extends React.Component {
             <div>
             <br/>
             {this.props.answers.map(singleAnswer => <Answer key={singleAnswer.id} answer={singleAnswer}/>)}
-            
-            </div>
+             */}
+            {/* </div> */}
         </div>
     )}
 }

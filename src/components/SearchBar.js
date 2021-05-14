@@ -1,21 +1,16 @@
-import React from 'react';
+import React from "react";
 
-class SearchBar extends React.Component {
-    changeHandler = (e) => {
-        {this.props.search(e.target.value)}
-      }
-	render() {
-		return (
-			<div className="ui large fluid icon input">
-				<input
-					type="text"
-					placeholder={'Search by song...'}
-					  onChange={(e) => this.changeHandler(e)}
-				/>
-				<i className="circular search link icon" />
-			</div>
-		);
-	}
-}
+const SearchBar = (props) => {
+  return (
+    <div className="ui large fluid icon input">
+      <input
+        type="text"
+        placeholder={"Search Songs"}
+        onChange={(e) => {props.filter(e)}}
+      />
+      <i className="circular search link icon"></i>
+    </div>
+  );
+};
 
 export default SearchBar;

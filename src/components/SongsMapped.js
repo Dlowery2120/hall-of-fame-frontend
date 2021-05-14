@@ -1,16 +1,55 @@
 import React, { Component } from 'react';
 import Song from './Song.js'
+import SearchBar from './SearchBar'
+class SongsMapped extends Component {
+    state={
+        sortedSongs: [],
+        fullSongsArray: []
+    }
 
-const SongsMapped = (props) => {
+    shuffle = (array) => {
+        let currentIndex = array.length, temporaryValue, randomIndex;
 
-       return(
+        while (0 !== currentIndex) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+      
+        return array;
+    }
+
+    sortArrayFx = (e) => {
+    const sortedArray = this.props.array.filter(song => 
+        song.full_title.toLowerCase().includes(e.target.value))
+        this.setState({ 
+            sortedSongs: this.shuffle(sortedArray)
+        })
+    }
+
+
+    componentDidMount() {
+        const fullSongs = this.props.array.filter(song => song.title !== "")
+        this.setState({
+            fullSongsArray: this.shuffle(fullSongs)
+        })
+    }
+      
+      render() {
+          return(
         <div>
-            {/* <h1>HELLO</h1> */}
+            {console.log(this.props.array)}
+        <SearchBar filter={this.sortArrayFx}/>
+        {this.state.sortedSongs.length > 0 ? (this.state.sortedSongs.map(aArray => <Song songArray={aArray}/>)) : (this.state.fullSongsArray.map(bArray => <Song songArray={bArray}/>))}
 
-        {props.array !== undefined ? (props.array.map(newArray => <Song songArray={newArray}/>)) : null}
         </div>
         );
       }
-
-    
+    }
  export default SongsMapped;
+
+
+//  <TransactionsList purchases={this.state.filteredPurchases.length > 0 ? this.state.filteredPurchases : this.state.purchases} filterPurchase={this.filterType} />
+

@@ -45,6 +45,7 @@ class SongsList extends Component {
     render(){
        return(
         <div>
+        {/* {console.log(this.props.allArtists)} */}
         <SearchBar filter={this.sortArrayFx}/>
         {/* <SongsMapped array={this.state.sortedSongs.length > 0 ? this.state.sortedSongs : this.state.allSongs}/> */}
         {this.state.sortedSongs.length > 0 ? this.state.sortedSongs.map(songA => <Song songArray={songA}/>) : this.state.allSongs.map(songB => <Song songArray={songB}/>)}

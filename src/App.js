@@ -81,20 +81,24 @@ class App extends Component {
         <nav>
               {localStorage.token ? <Redirect to="/home"/> : <Redirect to="/login"/>}
         </nav>
-        <Header />
 
           <Switch>
 
             <Route exact path="/login">
               <br />
-              <UserLogin handleLogin = {this.handleLogin}/>
+              <UserLogin handleLogin= {this.handleLogin}/>
               <br />
             </Route>
 
             <Route exact path="/home">
+              <div>
+
+              {/* <Header /> */}
+        
               {<TriviaContainer/>}
               <br/>
-              <button onClick={()=> this.handleLogout() }>LogOut</button>
+              <button onClick={()=> this.handleLogout() } className="btn btn-secondary">LogOut</button>
+              </div>
               
             </Route>
 

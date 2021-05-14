@@ -4,39 +4,38 @@ const LogIn = (props) => {
 	return (
 
 <div className="container-sm form-div">
-<h1>D&E Hits Hall of Fame</h1>
-<p>
-  <a className="btn btn-secondary sign-button" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Log In</a>
-  <a className="btn btn-secondary sign-button" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">Sign Up</a>
-  
-</p>
-<form onSubmit={props.handleLogin} className="collapse multi-collapse" id="multiCollapseExample1">
-<h1>Log In</h1><br></br>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1"/>
-  </div>
-  <button type="submit" class="btn btn-secondary">Submit</button>
-</form>
-<form className="collapse multi-collapse" id="multiCollapseExample2">
-<h1>Sign Up</h1><br></br>
-  <div class="mb-3">
-    <label for="exampleInputEmail2" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"/>
-    <div id="emailHelp2" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword2"/>
-  </div>
-  <button type="submit" class="btn btn-secondary">Submit</button>
-</form>
+    <h1>D&E Hits Hall of Fame</h1>
     
+    <p>
+        <a className="btn btn-secondary sign-button" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Log In</a>
+        <a className="btn btn-secondary sign-button" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">Sign Up</a>
+    </p>
+
+    <form onSubmit={props.handleLogin} className="collapse multi-collapse" id="multiCollapseExample1">
+        <h1>Log In</h1><br></br>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1"/>
+        </div>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
+    <form className="collapse multi-collapse" id="multiCollapseExample2">
+        <h1>Sign Up</h1><br></br>
+        <div class="mb-3">
+            <label for="exampleInputEmail2" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"/>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword2"/>
+        </div>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
 </div>
 	);
 };

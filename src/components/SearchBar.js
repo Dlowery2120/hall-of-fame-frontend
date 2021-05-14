@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
 			<div className="ui large fluid icon input">
 				<input
 					type="text"
-					placeholder={'Search your by song'}
+					placeholder={'Search by song...'}
 					  onChange={(e) => this.changeHandler(e)}
 				/>
 				<i className="circular search link icon" />

@@ -4,12 +4,13 @@ import React, { Component } from 'react'
 class Song extends Component {
 
     render() {
+      // console.log(this.props.songArray)
         return (
           <div>
             <div>
-              <h3>{this.props.name}</h3>
-              <img className="song-art" src={this.props.picture}></img>
-              <p>{this.props.title}</p>
+              <h1>{this.props.songArray.title}</h1>
+              <img className="song-art" src={this.props.songArray.song_art_image_url}></img>
+              <h5>{this.props.songArray.full_title}</h5>
             </div>
           </div>
         );

@@ -78,7 +78,8 @@ class TriviaContainer extends Component {
             }
             })
             .then(res => res.json())
-            .then(response => this.setState({
+            .then(response => 
+                this.setState({
                 allArtists: [...this.state.allArtists, response]
             }))
             .catch(err => {

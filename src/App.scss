@@ -170,15 +170,19 @@ body {
 // }
 
 .song-art {
-  width: 300px;
+  width: 350px;
+  height: 350px;
 }
 
 .card {
-  width: 18rem;
+  width: 15rem;
+  height: 35rem;
+  margin: 8px;
 }
 
 .songs-container {
   padding-left: 6%;
+  width: 50%;
 }
 
 #login-row {

@@ -71,7 +71,28 @@ class App extends Component {
       isLoggedIn: false
     })}
   }
+  handleSignup = (e) => {
+   e.preventDefault(e)
+    let user = {
+      username: e.target[0].value,
+      password: e.target[1].value
+    }
+    console.log(user)
+    let reqPackage = {
+      method: 'POST',
+      headers:{
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      body: JSON.stringify(user)
+    }
 
+    fetch('http://localhost:3000/api/v1/users', reqPackage)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+    })
+  }
   render() {
     return (
       <div className="App">
@@ -86,7 +107,7 @@ class App extends Component {
 
             <Route exact path="/login">
               <br />
-              <UserLogin handleLogin= {this.handleLogin}/>
+              <UserLogin handleLogin= {this.handleLogin} handleSignup={this.handleSignup}/>
               <br />
             </Route>
 

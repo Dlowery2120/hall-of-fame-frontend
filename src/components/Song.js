@@ -10,8 +10,26 @@ class Song extends Component {
             <div class="card">
               <img src={this.props.picture} class="card-img-top" alt="..."></img>
               <div class="card-body">
-                <h5 class="card-title">f</h5>
-                <p class="card-text">f</p>
+                <h5 class="card-title">placeholder</h5>
+                <p class="card-text">placeholder</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src={this.props.picture} class="card-img-top" alt="..."></img>
+              <div class="card-body">
+                <h5 class="card-title">placeholder</h5>
+                <p class="card-text">placeholder</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src={this.props.picture} class="card-img-top" alt="..."></img>
+              <div class="card-body">
+                <h5 class="card-title">placeholder</h5>
+                <p class="card-text">placeholder</p>
               </div>
             </div>
           </div>

@@ -12,7 +12,6 @@ class Song extends Component {
                           <div className="card-body">
                               <h5 className="card-text">{this.props.songArray.full_title !== undefined ? this.props.songArray.full_title : null}</h5>
                               <p>Check song lyrics<a href={this.props.songArray.url !== undefined ? this.props.songArray.url : null} target="_blank" rel="noopener noreferrer"> here</a>.</p>
-                              <button>DELETE</button>
                           </div>
                       </div><br/><br/>
                   </div>

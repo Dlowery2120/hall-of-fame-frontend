@@ -1,4 +1,46 @@
 
+
+import React, { useRef, useState } from "react";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
+
+import "../App.scss";
+
+const loadNewQuestion = () => {
+    console.log("yo")
+}
+
+const renderTime = ({ remainingTime }) => {
+
+    return (
+      <div className="timer">
+        <div className="text">Remaining</div>
+        <div className="value">{remainingTime}</div>
+        <div className="text">seconds</div>
+      </div>
+    );
+  };
+  
+  function Timer() {
+    return (
+      <div className="App">
+        <div className="timer-wrapper">
+          <CountdownCircleTimer
+            isPlaying
+            duration={10}
+            colors={"#004777"}
+            onComplete={()=>[true, 1000]}
+            // onComplete={()=>this.loadNewQuestion()}
+          >
+            {renderTime}
+          </CountdownCircleTimer>
+        </div>
+      </div>
+    );
+  }
+
+export default Timer;
+
+
 // import React, { useState, useEffect } from 'react';
 // import '../App.scss';
 
@@ -59,45 +101,3 @@
 // }
 
 // export default Timer;
-
-import React, { useRef, useState } from "react";
-import { CountdownCircleTimer } from "react-countdown-circle-timer";
-
-import "../App.scss";
-
-const renderTime = ({ remainingTime }) => {
-    if (remainingTime === 0) {
-      return <div className="timer">Too lale...</div>;
-    }
-  
-    return (
-      <div className="timer">
-        <div className="text">Remaining</div>
-        <div className="value">{remainingTime}</div>
-        <div className="text">seconds</div>
-      </div>
-    );
-  };
-  
-  function Timer() {
-    return (
-      <div className="App">
-        <div className="timer-wrapper">
-          <CountdownCircleTimer
-            isPlaying
-            duration={10}
-            colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
-            onComplete={() => [true, 1000]}
-          >
-            {renderTime}
-          </CountdownCircleTimer>
-        </div>
-        <p className="info">
-          Change component properties in the code filed on the right to try
-          difference functionalities
-        </p>
-      </div>
-    );
-  }
-
-export default Timer;

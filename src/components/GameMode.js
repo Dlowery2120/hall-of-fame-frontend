@@ -6,20 +6,39 @@ import Timer from './Timer'
 
 
 
-const GameMode = (props) => {
+class GameMode extends React.Component {
+  state = {
+    displayMode: false
+  }
+  
+  handleClick = () => {
+    this.setState({displayMode: !this.state.displayMode})
+  }
+
+  // toggleMode = () => {
+  //   this.setState({displayMode: !this.state.displayMode})
+  // }
+  
+  render() {
     return(
         <div>
-            <button class="gamemodeBtn">{props.gamemode.mode}</button>
+            <button class="gamemodeBtn" onClick={this.handleClick}>{this.props.gamemode.mode}</button>
             <br/> <br/>
-            <Timer/>
-            <Question questions={props.questions} songs={props.songs} questionRenderChoices={props.questionRenderChoices} questionGetRandom={props.questionGetRandom} answers={props.answers} />
+            {this.state.displayMode ? <Timer/> : false}
+            {this.state.displayMode ? <Question 
+            questions={this.props.questions} 
+            songs={this.props.songs} 
+            questionRenderChoices={this.props.questionRenderChoices} 
+            questionGetRandom={this.props.questionGetRandom} 
+            answers={this.props.answers}
+             /> : false}
             <div>
             <br/>
-            {props.answers.map(singleAnswer => <Answer key={singleAnswer.id} answer={singleAnswer}/>)}
-            <br/><br/><br/><br/><br/>
+            {this.props.answers.map(singleAnswer => <Answer key={singleAnswer.id} answer={singleAnswer}/>)}
+            
             </div>
         </div>
-    )
+    )}
 }
 
 

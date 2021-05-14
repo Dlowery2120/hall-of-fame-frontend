@@ -116,9 +116,9 @@ class App extends Component {
 
               {/* <Header /> */}
         
-              {<TriviaContainer/>}
-              <br/>
               <button onClick={()=> this.handleLogout() } className="btn btn-secondary">LogOut</button>
+              <br/>
+              {<TriviaContainer/>}
               </div>
               
             </Route>

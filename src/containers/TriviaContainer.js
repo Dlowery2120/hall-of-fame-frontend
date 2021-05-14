@@ -84,13 +84,6 @@ class TriviaContainer extends Component {
                 console.error(err);
             });
     }
-    
-    // renderSearch = (searchWords) => {
-	// 	const searchResults = this.state.artistInfo.response.hits.filter((transaction) =>
-	// 		transaction.description.includes(searchWords)
-	// 	)(searchResults);
-	// 	this.setState({ filteredSongs: searchResults });
-	// };
 
 	render() {
 		return (

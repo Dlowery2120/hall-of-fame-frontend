@@ -15,8 +15,7 @@ const LogIn = (props) => {
         <h1>Log In</h1><br></br>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -24,7 +23,7 @@ const LogIn = (props) => {
         </div>
         <button type="submit" class="btn btn-secondary">Submit</button>
     </form>
-    <form className="collapse multi-collapse" id="multiCollapseExample2">
+    <form onSubmit={props.handleSignup} className="collapse multi-collapse" id="multiCollapseExample2">
         <h1>Sign Up</h1><br></br>
         <div class="mb-3">
             <label for="exampleInputEmail2" class="form-label">Email address</label>
